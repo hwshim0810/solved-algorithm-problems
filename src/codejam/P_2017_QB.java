@@ -54,8 +54,10 @@ Note that the last sample case would not appear in the Small dataset.
 
 public class P_2017_QB {
 	public static void main(String[] args) throws InterruptedException, IOException {
-        BufferedReader br = new BufferedReader(new FileReader("QB_small.in"));
-        FileOutputStream output = new FileOutputStream("QB_small.out");
+//        BufferedReader br = new BufferedReader(new FileReader("QB_small.in"));
+//        FileOutputStream output = new FileOutputStream("QB_small.out");
+        BufferedReader br = new BufferedReader(new FileReader("QB_large.in"));
+        FileOutputStream output = new FileOutputStream("QB_large.out");
         
         while(true) {
             String line = br.readLine();
@@ -64,13 +66,38 @@ public class P_2017_QB {
             int T = Integer.valueOf(line);
             
             for (int i = 1; i <= T; ++i) {
-            	String res = String.format("Case #%d: %s%n", i, sm_eval(br.readLine()));
+            	String res = String.format("Case #%d: %s%n", i, lg_eval(br.readLine()));
             	output.write(res.getBytes());
             }
             output.close();
         }
         br.close();
 	}
+	
+	// Large
+	public static String lg_eval(String input) {
+		while (true) {
+			char[] arr = input.toCharArray();
+			int len = input.length();
+			boolean flag = false;
+			
+			for (int i = 1; i < len; ++i) {
+				if (arr[i-1] > arr[i]) {
+					arr[i-1] = (char) (arr[i-1] - 1);
+					
+					for (int j = i; j < len; ++j) arr[j] = '9';
+					
+					flag = true;
+					input = new String(arr);
+					break;
+				}
+			}
+			if (!flag) break;
+		}
+		if (input.charAt(0) == '0') input = input.substring(1);
+		return input;
+	}
+	
 	
 	// Small
 	public static String sm_eval(String input) {
