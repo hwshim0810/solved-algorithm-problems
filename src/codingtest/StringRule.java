@@ -1,4 +1,4 @@
-package codingTest;
+package codingtest;
 
 public class StringRule {
 	public static String solution2(String S) {

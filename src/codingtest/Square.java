@@ -1,4 +1,4 @@
-package codingTest;
+package codingtest;
 
 public class Square {
     public int solution1(int A, int B) {
