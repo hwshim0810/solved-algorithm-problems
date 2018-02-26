@@ -5,4 +5,9 @@
 
 bin
 
+# Idea
 .idea/
+
+# Input file
+*.out
+*.in
