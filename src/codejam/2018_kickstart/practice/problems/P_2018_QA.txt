@@ -32,3 +32,10 @@ For each test case, output one line containing "Case #Ti:" followed by P numbers
 5
 10
 27
+
+Output 
+ 
+Case #1: 2 1
+Case #2: 3 3 4
+
+
